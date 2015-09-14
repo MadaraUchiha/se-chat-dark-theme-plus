@@ -16,11 +16,13 @@ const colorCode = i => {
     	Math.min(i & 0xFF, 175).toString(16)).slice(0, 6);
 };
 const writeToSheet = obj => {
-    userColorSheet.textContent += `.${obj.key} .messages { border-top: solid .25em ${obj.color} !important; } `;
+    userColorSheet.textContent += `.user-${obj.key} .messages { border-top: solid .25em ${obj.color} !important; } `;
 };
 const colorUserParser = node => {
     if (node.classList && node.classList.contains('user-container')) {
-        let user = node.querySelector('a.signature').getAttribute('href').split('/')[2];
+    	let sig = node.querySelector('a.signature');
+    	if( !sig ) return; // not all user-container nodes are in the chat view. 
+        let user = sig.getAttribute('href').split('/')[2];
         if (!foundColorUsers.includes(user)) {
             foundColorUsers.push(user);
             writeToSheet({
@@ -31,3 +33,4 @@ const colorUserParser = node => {
     }
 };
 watcher.addParser(colorUserParser);
+watcher.force(document.querySelectorAll('.user-container'));

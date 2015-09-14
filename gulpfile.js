@@ -3,6 +3,7 @@ var gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
 	sass = require('gulp-sass'),
+	cssmin = require('gulp-cssmin'),
 	replace = require('gulp-replace');
 
 
@@ -23,5 +24,6 @@ gulp.task('styles', function() {
 			.pipe(concat('style.css'))
 			.pipe(sass().on('error', sass.logError))
 			.pipe(replace(/;/g, ' !important;')) // because adding this in manually would be lame.
+			.pipe(cssmin())
 			.pipe(gulp.dest('dist'));
 });

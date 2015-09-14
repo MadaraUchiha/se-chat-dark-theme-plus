@@ -23,7 +23,7 @@ const colorUserParser = node => {
     	let sig = node.querySelector('a.signature');
     	if( !sig ) return; // not all user-container nodes are in the chat view. 
         let user = sig.getAttribute('href').split('/')[2];
-        if (!foundColorUsers.includes(user)) {
+        if (foundColorUsers.indexOf(user) === -1) { // Array.includes polyfill breaks the chat. Thanks Balpha! 
             foundColorUsers.push(user);
             writeToSheet({
                 key: user,

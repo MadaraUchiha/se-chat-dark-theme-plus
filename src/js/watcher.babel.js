@@ -14,7 +14,7 @@ class Watcher {
         this.parsers.push(parser);
     }
     force(nodes) {
-        [...nodes].forEach(node => this.parsers.forEach(parser => parser(node)));
+        [...nodes].forEach(node => node.classList && (this.parsers.forEach(parser => parser(node))));
     }
 }
 let watcher = new Watcher(chat);

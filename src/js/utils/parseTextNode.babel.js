@@ -1,8 +1,6 @@
 const parseTextNodes = (container, callback) => {
 	let recurse = (node = container) => {
-		for( let n of node.childNodes ) {
-			recurse(n);
-		}
+		[...node.childNodes].forEach(recurse);
 		if( node.nodeType === Node.TEXT_NODE && node.nodeValue !== '' ) {
 			callback(node);
 		}

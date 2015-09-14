@@ -8,8 +8,8 @@ var gulp = require('gulp'),
 
 var dist = 'dist';
 
-gulp.task('default', function() {
-	return gulp.start('scripts','styles','static');
+gulp.task('default', ['scripts','styles','static'], function() {
+	// order doesn't matter for these. 
 });
 
 gulp.task('scripts', function() {

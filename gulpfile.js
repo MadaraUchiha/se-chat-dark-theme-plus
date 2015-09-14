@@ -4,7 +4,7 @@ var gulp = require('gulp'),
 	uglify = require('gulp-uglify');
 
 gulp.task('default', function() {
-	return gulp.src(['src/polyfills/*', 'src/js/watcher.babel.js', 'src/js/parsers/*.babel.js'])
+	return gulp.src(['src/js/polyfills/*', 'src/js/watcher.babel.js', 'src/js/parsers/*.babel.js'])
 			.pipe(concat('script.js'))
 			.pipe(babel())
 			.pipe(uglify())

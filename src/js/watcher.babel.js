@@ -10,8 +10,11 @@ class Watcher {
     defaultParser(records) {
         records.forEach(record => this.force(record.addedNodes));
     }
-    addParser(parser) {
+    addParser(parser, nodes) {
         this.parsers.push(parser);
+        if( nodes ) {
+            this.force(nodes);
+        }
     }
     force(nodes) {
         [...nodes].forEach(node => node.classList && (this.parsers.forEach(parser => parser(node))));

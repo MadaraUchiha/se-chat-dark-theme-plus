@@ -1,0 +1,1 @@
+NodeList.prototype[Symbol.iterator] = [][Symbol.iterator];

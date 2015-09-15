@@ -1,11 +1,20 @@
-# SE Chat Dark Theme Plus! 
+# StackExchange Chat Dark Theme Plus!
 
 This is the new home for rlemon's dark theme. 
 
+restyled Olivers original and added a bunch of JS "features".   
+
 Why the change? The re-write of this is more modular and I didn't feel like managing a new branch. 
 
+![](http://i.imgur.com/xxMPtoI.png)
+
+Only tested in Chrome. FireFox is on the roadmap. IE is smelly and will not get support. 
+
 ### Usage 
-The extension is not currently on the webstore so you'll have to install the development version found in /dist
+
+Available for Chrome here: https://chrome.google.com/webstore/detail/so-dark-chat-%20/bbkjccfnenmgidehjhaabamobpbaaghh  
+
+For development versions:  
 
 Download the project (or just copy the contents out of /dist) 
 

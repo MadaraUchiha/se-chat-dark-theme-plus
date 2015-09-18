@@ -12,7 +12,7 @@ gulp.task('default', ['scripts','styles','static']);
 
 gulp.task('scripts', function() {
 	return gulp
-			.src(['src/js/polyfills/*.js', 'src/js/utils/*.babel.js', 'src/js/watcher.babel.js', 'src/js/parsers/*.babel.js'])
+			.src(['src/js/polyfills/*.js', 'src/js/utils/*.babel.js', 'src/js/libs/*.js','src/js/app.babel.js', 'src/js/watcher.babel.js', 'src/js/parsers/*.babel.js'])
 			.pipe(concat('script.js'))
 			.pipe(babel())
 			.pipe(uglify())

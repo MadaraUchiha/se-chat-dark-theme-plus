@@ -12,7 +12,7 @@ gulp.task('default', ['scripts','styles','static']);
 
 gulp.task('scripts', function() {
 	return gulp
-			.src(['src/js/polyfills/*.js', 'src/js/utils/*.babel.js', 'src/js/libs/*.js','src/js/app.babel.js', 'src/js/watcher.babel.js', 'src/js/parsers/*.babel.js'])
+			.src(['src/js/polyfills/*.js', 'src/js/utils/*.babel.js', 'src/js/libs/*.js', 'src/js/plugins/*.babel.js', 'src/js/plugins/*.js','src/js/app.babel.js', 'src/js/watcher.babel.js', 'src/js/parsers/*.babel.js'])
 			.pipe(concat('script.js'))
 			.pipe(babel())
 			.pipe(uglify())
@@ -21,7 +21,7 @@ gulp.task('scripts', function() {
 
 gulp.task('styles', function() {
 	return gulp
-			.src(['src/css/variables.sass', 'src/css/*.sass'])
+			.src(['src/css/variables.sass', 'src/css/*.sass', 'src/css/*.css'])
 			.pipe(concat('style.css'))
 			.pipe(sass().on('error', sass.logError))
 			.pipe(replace(/;/g, ' !important;')) // because adding this in manually would be lame.

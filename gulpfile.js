@@ -4,22 +4,23 @@ var gulp = require('gulp'),
 	uglify = require('gulp-uglify'),
 	sass = require('gulp-sass'),
 	cssmin = require('gulp-cssmin'),
+	zip = require('gulp-zip'),
 	replace = require('gulp-replace');
 
 var dist = 'dist';
 
-gulp.task('default', ['scripts','styles','static']);
+gulp.task('default', ['zip']);
 
 gulp.task('scripts', function() {
 	return gulp
-			.src(['src/js/polyfills/*.js', 'src/js/utils/*.babel.js', 'src/js/libs/*.js', 'src/js/plugins/*.babel.js', 'src/js/plugins/*.js','src/js/app.babel.js', 'src/js/watcher.babel.js', 'src/js/parsers/*.babel.js'])
+			.src(['src/js/polyfills/*.js', 'src/js/utils/*.js', 'src/js/libs/*.js', 'src/js/plugins/*.js','src/js/app.js', 'src/js/watcher.js', 'src/js/parsers/*.js'])
 			.pipe(concat('script.js'))
 			.pipe(babel())
 			.pipe(uglify())
 			.pipe(gulp.dest(dist));
 });
 
-gulp.task('styles', function() {
+gulp.task('styles', ['scripts'], function() {
 	return gulp
 			.src(['src/css/variables.sass', 'src/css/*.sass', 'src/css/*.css'])
 			.pipe(concat('style.css'))
@@ -29,8 +30,14 @@ gulp.task('styles', function() {
 			.pipe(gulp.dest(dist));
 });
 
-gulp.task('static', function() {
+gulp.task('static',['styles'], function() {
 	return gulp
 			.src(['src/static/*','src/static/**/*.*'])
 			.pipe(gulp.dest(dist));
+});
+
+gulp.task('zip', ['static'], function() {
+    return gulp.src([dist + '/*', dist + '/**/*.*', '!' + dist + '/*.zip'])
+	        .pipe(zip('dist.zip'))
+	        .pipe(gulp.dest(dist));
 });

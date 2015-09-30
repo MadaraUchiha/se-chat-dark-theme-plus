@@ -6,15 +6,26 @@
 // I should probably think of a new name for them. 
 // Suggestions are welcome. 
 
-const loadingDelay = node => {
-	if( node.textContent === 'loading…' ) {
-		watcher.drain();
-		watcher.removeWatcher(loadingDelay);
+// const loadingDelay = node => {
+// 	if( node.textContent === 'loading…' ) {
+// 		watcher.drain();
+// 		watcher.removeWatcher(loadingDelay);
+// 	}
+// }
+// let loaded = !document.querySelector('#loading');  // chat loads faster for some
+// if( !loaded ) {
+// 	console.log('not loaded, adding watcher');
+// 	watcher.addWatcher(loadingDelay);
+// } else {
+// 	console.log('loaded, draining');
+// 	watcher.drain();
+// }
+
+// fuck this shit ^ 
+// I'm not pleased. 
+(function fuckthisisugly() {
+	if( document.querySelector('#loading') ) {
+		return setTimeout(fuckthisisugly, 10);
 	}
-}
-let loaded = !document.querySelector('#loading');  // chat loads faster for some
-if( !loaded ) {
-	watcher.addWatcher(loadingDelay);
-} else {
 	watcher.drain();
-}
+}());

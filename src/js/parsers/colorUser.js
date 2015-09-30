@@ -30,4 +30,4 @@ const colorUserParser = node => {
         }
     }
 };
-watcher.addParser(colorUserParser, document.querySelectorAll('.user-container'));
+watcher.addParser(colorUserParser, '.user-container');

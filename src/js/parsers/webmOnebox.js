@@ -13,4 +13,4 @@ const webmOneboxParser = node => {
 	}
 };
 
-watcher.addParser(webmOneboxParser, document.querySelectorAll('.user-container .message'));
+watcher.addParser(webmOneboxParser, '.user-container .message');

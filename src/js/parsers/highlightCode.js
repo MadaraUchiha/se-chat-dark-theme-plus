@@ -7,4 +7,4 @@ const highlightParser = node => {
     	});
     }
 };
-watcher.addParser(highlightParser, document.querySelectorAll('.user-container message'));
+watcher.addParser(highlightParser, '.user-container message');

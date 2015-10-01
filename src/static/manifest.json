@@ -23,6 +23,6 @@
 		"fonts/*.svg",
 		"fonts/*.eot",
 		"images/*.svg",
-		"ace/*",
+		"ace/*"
 	]
 }

@@ -1,0 +1,31 @@
+.mine {
+  .messages {
+  	background-color: #333;
+  	color: #ddd;
+  }
+}
+
+.monologue:hover {
+  .messages {
+  	background-color: #282828;
+  }
+}
+
+.messages {
+  background-color: #222;
+	color: #ddd;
+	border: none;
+	border-radius: 0;
+
+  .pending {
+  	color: #fb7;
+  }
+
+  .posted {
+  	color: #fdb;
+  }
+
+  .neworedit {
+  	color: #fdb;
+  }
+}

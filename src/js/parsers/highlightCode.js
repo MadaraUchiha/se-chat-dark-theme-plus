@@ -7,4 +7,4 @@ const highlightParser = node => {
     	});
     }
 };
-watcher.addParser(highlightParser, '.user-container message');
+watcher.addParser(highlightParser, '.user-container .message');

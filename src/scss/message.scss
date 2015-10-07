@@ -11,6 +11,10 @@ div.message {
 
   &.highlight {
   	background-color: rgba(225,225,225,0.17);
+
+		.flash {
+			right: -38px;
+		}
   }
 
   &:hover {

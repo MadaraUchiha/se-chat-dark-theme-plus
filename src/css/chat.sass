@@ -1,0 +1,380 @@
+/* TODO:: Actually convert this to sass... -_- */
+
+body,
+#loading,
+#loading #loading-message {
+	background-color: #000;
+	background-image: url("http://i.stack.imgur.com/SxaRm.png");
+	color: #ddd;
+}
+#loading,
+#loading #loading-message {
+	box-shadow: none;
+}
+.messages {
+	background-color: #222;
+	color: #ddd;
+	border: none;
+	border-radius: 0;
+}
+div.system-message-container .system-message {
+	color: #aaa;
+}
+.mine .messages {
+	background-color: #333;
+	color: #ddd;
+}
+.messages .pending {
+	color: #fb7;
+}
+.messages .posted {
+	color: #fdb;
+}
+.messages .neworedit {
+	color: #fdb;
+}
+.msg-small,
+#sidebar {
+	color: #ddd;
+}
+/* Begin Message */
+
+.monologue {
+	margin: 0;
+	padding: 3px 0;
+	border-radius: 6px;
+	transition: .1s;
+}
+.monologue:hover .messages {
+	background-color: #282828;
+}
+.avatar-32 {
+	margin-top: 5px;
+}
+.message {
+	margin-left: 3px;
+	padding-left: 22px;
+	border-radius: 3px;
+	transition: .3s;
+}
+.message:hover {
+	border: 1px solid transparent;
+	border-bottom: 1px solid #333;
+}
+.message .action-link {
+	border-radius: 3px 3px 0 0;
+}
+/* Background color for selected messages in select mode. */
+
+#main.select-mode .message.selected {
+	background-color: #3C3932;
+}
+div.message:hover .action-link,
+.timestamp:hover + div.message .action-link {
+	color: #eee;
+	background-color: #333;
+}
+.message .meta {
+	right: 0;
+	bottom: 0;
+	border-radius: 3px 3px 0 0;
+	padding: 0 4px;
+}
+.message .meta span:hover {
+	background-color: #666;
+	border-radius: 3px;
+}
+.message.highlight {
+	background-color: rgba(225,225,225,0.17);
+}
+.highlight {
+	background-color: inherit;
+	border-color: rgba(225,225,0,0.12);
+	margin-right: 0;
+}
+
+/* Begin End */
+
+/* Begin Bottom Area */
+
+#main #input-area {
+	background-color: #333;
+	background-image: url("http://i.stack.imgur.com/JfVoA.png");
+}
+/* Hide separators */
+
+#sidebar-menu,
+#footer-legal {
+	color: transparent;
+}
+/* Now bring the parenthesis back */
+
+#leaveall {
+	padding: 0 3px;
+}
+#tabcomplete li {
+	background-color: #000;
+	color: #ccc;
+}
+#input {
+	background-color: #000;
+	color: #ddd;
+}
+
+/* mod rooms only */
+body.moderator-room #input {
+	border: 2px solid rgba(255, 77, 0, 0.48);
+}
+
+/* End Bottom Area */
+
+div.message.reply-parent,
+div.message.reply-child {
+	background-color: #333;
+	border: 1px solid #fff;
+}
+div.message .meta,
+.timestamp {
+	background-color: #333;
+	color: #ddd;
+}
+.mention {
+	background-color: #24A;
+}
+.monologue .signature a,
+a.signature {
+	color: #ddd;
+}
+.flair {
+	color: #ddd;
+}
+/* Begin OneBoxing */
+
+.ob-tweet,
+.ob-twitteruser,
+.ob-wikipedia,
+.ob-amazon,
+.ob-gist,
+.ob-message,
+.ob-lpadbug,
+.ob-manpage,
+.ob-blog,
+.ob-exception,
+.ob-post,
+.ob-user,
+.ob-job {
+	padding: 0 1.5em;
+	background-color: #333;
+	color: #ddd;
+}
+.ob-post-title a,
+.ob-tweet .ob-status-text,
+.ob-wikipedia-title a,
+.ob-amazon-title a,
+.ob-lpadbug-title a,
+.ob-manpage-title a,
+.ob-blog-title a {
+	color: #ddd;
+}
+/* End OneBoxing */
+
+/* Begin Notifications */
+
+.notification,
+#feed-ticker {
+	background: rgba(0,0,0,0.95);
+	-moz-box-shadow: 0 1px 10px #545454;
+	-webkit-box-shadow: 0 1px 10px #545454;
+	box-shadow: 0 1px 10px #545454;
+}
+.ticker-item a {
+	color: #509fd8;
+}
+/* End Notifications */
+
+/* Begin Sidebar */
+
+#searchbox {
+	background-color: #000;
+	color: #ddd;
+}
+#sidebar #info #roomtitle {
+	text-shadow: 0px 1px 0px #000;
+}
+#sidebar #info #sidebar-menu,
+#present-users,
+ul#my-rooms,
+div#starred-posts > div > ul > li {
+	border-bottom: 1px dotted #222;
+}
+.room-info > .last-message {
+	margin-left: 10px;
+}
+ul#my-rooms > li.activity-0 {
+	color: #fff;
+}
+ul#my-rooms > li.activity-1 {
+	color: #ddd;
+}
+ul#my-rooms > li.activity-2 {
+	color: #bbb;
+}
+ul#my-rooms > li.activity-3 {
+	color: #999;
+}
+ul#my-rooms > li.activity-4 {
+	color: #888;
+}
+ul#my-rooms > li.activity-5 {
+	color: #777;
+}
+ul#my-rooms > li.activity-6 {
+	color: #666;
+}
+ul#my-rooms > li:hover {
+	background-color: #333;
+}
+ul#my-rooms > li:hover a,
+ul#my-rooms > li:hover div.last-message {
+	color: #fff;
+}
+ul#my-rooms .quickleave {
+	float: right;
+	opacity: 0.3;
+}
+ul#my-rooms .quickleave:hover {
+	opacity: 1.0;
+}
+ul#my-rooms .quickswitch,
+ul#my-rooms .quickleave,
+.vote-count-container.stars .img {
+	background-image: url("http://i.stack.imgur.com/Da7jC.png");
+}
+#starred-posts ul li:hover {
+	background-color: #333;
+}
+/* End Sidebar */
+
+.vote-count-container.stars.owner-star .img,
+.vote-count-container.stars.user-star .img,
+.vote-count-container.stars.owner-star.user-star .img,
+.sprite {
+	background-image: url("http://i.stack.imgur.com/Da7jC.png");
+}
+div.message:hover .action-link,
+.timestamp:hover + div.message .action-link {
+	color: #eee;
+	background-color: #333;
+}
+/* Upload popup */
+
+.wmd-prompt-dialog {
+	border: none;
+	background-color: #000;
+	background-image: url("http://i.stack.imgur.com/SxaRm.png");
+	color: #ddd;
+}
+/* Search page */
+
+body.outside #container,
+.general-room-access>form>div {
+	color: #ddd;
+}
+/* Popups */
+
+.popup,
+#main.message-admin-mode .message-controls,
+#conversation-sel {
+	border-color: #111;
+	color: #ddd;
+	background-color: rgba(51,51,51,0.95);
+	box-shadow: 0 1px 15px #000;
+}
+.popup .btn-close,
+#conversation-sel .btn-close {
+	color: #454545;
+	background-color: #111;
+}
+/* Info Page */
+
+.usercard-xxl,
+.roomcard-xxl,
+.roomcard,
+.usercard,
+.room-mini,
+.conversation-info {
+	background-color: #222;
+	border-color: #000;
+	color: #ddd;
+	box-shadow: 0px 1px 3px #111;
+}
+.roomcard,
+.usercard {
+	background-color: #161616;
+	border: none;
+}
+.subheader #tabs a.youarehere {
+	background: Transparent;
+	color: #eee;
+}
+.monologue.catchup-marker {
+	border-top-color: rgba(155,155,155,0.5);
+}
+.subheader #tabs a:not(.youarehere), .subheader #tabs .disabled {
+	border: none;
+}
+.subheader #tabs a.youarehere {
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+.subheader #tabs a:hover {
+	background: #333;
+	color: #eee;
+}
+/* Tags */
+
+.tag,
+.ob-post-tag {
+	color: #454545;
+	background-color: #ddd;
+	border-bottom-color: #999;
+	border-right-color: #ddd;
+}
+
+/* Flags */
+
+.flags-popup li.flagged-message div.content {
+	color: #eee;
+	background-color: #242424;
+}
+
+/* bandaid logo solution */
+.header-logo {
+	margin: 0;
+	background-color: #ddd
+;	padding: 3px 6px 9px 6px;
+}
+
+/* moderator username fix */
+.username.moderator {
+	color: #7798C2;
+}
+
+/* fuck your spaces */
+* {
+	tab-size: 4;
+}
+
+//-----------------------------------------------
+
+#bubble {
+	text-align: unset;
+}
+
+#codify-button {
+	display: none;
+}
+
+.message.highlight .flash {
+	right: -38px;
+}

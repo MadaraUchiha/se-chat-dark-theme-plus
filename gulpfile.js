@@ -22,7 +22,7 @@ gulp.task('scripts', function() {
 
 gulp.task('styles', ['scripts'], function() {
 	return gulp
-			.src(['src/css/variables.sass', 'src/css/*.sass', 'src/css/*.css'])
+			.src(['src/css/app.scss', 'src/css/*.css'])
 			.pipe(concat('style.css'))
 			.pipe(sass().on('error', sass.logError))
 			.pipe(replace(/;/g, ' !important;')) // because adding this in manually would be lame.

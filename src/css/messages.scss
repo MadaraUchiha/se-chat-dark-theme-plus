@@ -29,3 +29,10 @@
   	color: #fdb;
   }
 }
+
+// not sure this is the best place for this. I'm getting used to organizing these still. 
+div.message .meta,
+.timestamp {
+  background-color: #333;
+  color: #ddd;
+}

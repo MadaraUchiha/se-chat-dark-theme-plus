@@ -10,8 +10,10 @@
 .ob-exception,
 .ob-post,
 .ob-user,
+.ob-docs,
+.ob-docs-topic,
 .ob-job {
-	padding: 0 1.5em;
+	padding: 0.5 1.5em;
 	background-color: #333;
 	color: #ddd;
 }
@@ -21,6 +23,22 @@
 .ob-amazon-title a,
 .ob-lpadbug-title a,
 .ob-manpage-title a,
+.ob-docs a,
+.ob-docs-topic a,
 .ob-blog-title a {
+	color: #aaa;
+}
+
+/* new docs stuff has strange styles */
+.ob-docs {
+	border: none;
+	&.ob-docs-topic .topic-row .example-metric {
+		background-color: #333;
+		color: #ddd;
+	}
+}
+.reputation-score, 
+.ob-docs.ob-docs-topic .user-info  {
 	color: #ddd;
 }
+

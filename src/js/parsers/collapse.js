@@ -28,7 +28,7 @@ function collapseOnebox(node) {
         const toggleBar = document.createElement('div');
         toggleBar.classList.add('toggle-bar-dark-theme');
         toggleBar.dataset.isOpen = TRUE; // why????
-        const link = ob.querySelector('a');
+        const link = ob.querySelector('a,iframe');
         let anchor = '';
         if( link ) {
             anchor += ` <a href="${link.href}" target="_blank" title="${link.href}">${prettyLink(link.href)}</a>`

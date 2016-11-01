@@ -15,6 +15,7 @@ function youtubeInliner(node) {
     vid.setAttribute('frameborder', 0);
     vid.setAttribute('allowfullscreen', 'true');
     vid.src = '//youtube.com/embed/' + videoHref; // new href
+    vid.hidden = yt.hidden;
     yt.parentNode.replaceChild(vid, yt); // replace old link with iframe
 }
 

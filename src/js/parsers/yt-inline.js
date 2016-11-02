@@ -1,4 +1,6 @@
 function youtubeInliner(node) {
+    const inlineYoutube = OPTIONS['inline-youtube'];
+    if( !inlineYoutube ) return;
     if( !node.classList || !node.classList.contains('message') || node.classList.contains('pending') ) return; // if not message node, exit
     const yt = node.querySelector('.onebox.ob-youtube'); // grab youtube onebox
     if( !yt ) return; // exit if not found

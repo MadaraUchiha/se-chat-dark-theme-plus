@@ -32,7 +32,9 @@
 let OPTIONS = {};
 function start() {
 	const defaults = {};
-	defaults['auto-collapse-checkbox'] = false;
+	defaults['auto-collapse'] = true;
+	defaults['user-colours'] = true;
+	defaults['inline-youtube'] = true;
 	chrome.storage.sync.get(defaults, items => {
 		Object.assign(OPTIONS, items);
 		watcher.drain();

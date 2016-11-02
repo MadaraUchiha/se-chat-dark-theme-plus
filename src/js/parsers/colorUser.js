@@ -17,6 +17,8 @@ const writeToSheet = obj => {
     userColorSheet.textContent += `.user-${obj.key} .messages { border-top: solid .25em ${obj.color} !important; } `;
 };
 const colorUserParser = node => {
+    const userColours = OPTIONS['user-colours'];
+    if( !userColours ) return;
     if (node.classList.contains('user-container')) {
     	let sig = node.querySelector('a.signature');
     	if( !sig ) return; // not all user-container nodes are in the chat view. 

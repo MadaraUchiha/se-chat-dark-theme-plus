@@ -27,5 +27,14 @@
 	if( document.querySelector('#loading') ) {
 		return setTimeout(fuckthisisugly, 10);
 	}
-	watcher.drain();
+	start();
 }());
+let OPTIONS = {};
+function start() {
+	const defaults = {};
+	defaults['auto-collapse-checkbox'] = false;
+	chrome.storage.sync.get(defaults, items => {
+		Object.assign(OPTIONS, items);
+		watcher.drain();
+	});
+}

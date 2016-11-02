@@ -20,6 +20,7 @@ function prettyLink(url, limit = 54) {
     return `${tpre}...${tpost}`;
 }
 function collapseOnebox(node) {
+        if( !OPTIONS['auto-collapse-checkbox'] ) return;
         if( !node.classList || !node.classList.contains('message') || node.classList.contains('pending') ) return;
         const ob = node.querySelector('.onebox');
         const tb = node.querySelector('.toggle-bar-dark-theme');

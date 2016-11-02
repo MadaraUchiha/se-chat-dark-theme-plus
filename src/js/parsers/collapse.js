@@ -20,7 +20,6 @@ function prettyLink(url, limit = 54) {
     return `${tpre}...${tpost}`;
 }
 function collapseOnebox(node) {
-        if( !OPTIONS['auto-collapse-checkbox'] ) return;
         if( !node.classList || !node.classList.contains('message') || node.classList.contains('pending') ) return;
         const ob = node.querySelector('.onebox');
         const tb = node.querySelector('.toggle-bar-dark-theme');
@@ -28,13 +27,13 @@ function collapseOnebox(node) {
         const container = ob.parentNode;
         const toggleBar = document.createElement('div');
         toggleBar.classList.add('toggle-bar-dark-theme');
-        toggleBar.dataset.isOpen = TRUE; // why????
+        toggleBar.dataset.isOpen = OPTIONS['auto-collapse-checkbox'] ? TRUE : FALSE;
         const link = ob.querySelector('a,iframe');
         let anchor = '';
         if( link ) {
             anchor += ` <a href="${link.href}" target="_blank" title="${link.href}">${prettyLink(link.href)}</a>`
         }
-        toggleBar.innerHTML = lblOpen + anchor;
+        toggleBar.innerHTML = ( OPTIONS['auto-collapse-checkbox'] ? lblOpen : lblClose ) + anchor;
         toggleBar.onclick = function(event) {
             if( event.target !== this ) return;
             const {isOpen} = this.dataset;
@@ -42,7 +41,7 @@ function collapseOnebox(node) {
             this.innerHTML = (isOpen === TRUE ? lblClose : lblOpen) + anchor;
             this.nextElementSibling.hidden = isOpen === FALSE;
         };
-        ob.hidden = true;
+        ob.hidden = OPTIONS['auto-collapse-checkbox'];
         container.insertBefore(toggleBar, ob);
 }
 watcher.addParser(collapseOnebox, '.user-container .message');

@@ -1,4 +1,4 @@
-(function() {
+;(function() {
     "use strict";
     const input = document.getElementById('input');
     input.addEventListener('keyup', event => {
@@ -11,4 +11,4 @@
         	return word;
         }).join(' ');
     });
-}())
+}());

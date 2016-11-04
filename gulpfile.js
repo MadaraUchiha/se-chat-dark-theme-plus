@@ -13,7 +13,7 @@ gulp.task('default', ['zip']);
 
 gulp.task('scripts', function() {
 	return gulp
-			.src(['src/js/polyfills/*.js', 'src/js/utils/*.js', 'src/js/libs/*.js', 'src/js/plugins/*.js','src/js/watcher.js', 'src/js/parsers/*.js', 'src/js/app.js'])
+			.src(['src/js/polyfills/*.js', 'src/js/static/*.js', 'src/js/utils/*.js', 'src/js/libs/*.js', 'src/js/plugins/*.js','src/js/watcher.js', 'src/js/parsers/*.js', 'src/js/app.js'])
 			.pipe(concat('script.js'))
 			.pipe(babel())
 			.pipe(uglify())

@@ -27,16 +27,12 @@ function report(text, delay = 5000) {
 	}
 }
 function setValue(element, value) {
-	if( element.type.toLowerCase() === 'checkbox' ) {
-		return element.checked = value;
-	} else {
-		return element.value = value;
-	}
+	element[isCheckbox(element) ? 'checked' : 'value'] = value;
 }
 function getValue(element) {
-	if( element.type.toLowerCase() === 'checkbox' ) {
-		return element.checked;
-	} else {
-		return element.value;
-	}
+	return element[isCheckbox(element) ? 'checked' : 'value'];
+}
+
+function isCheckbox(element) {
+	return element.type.toLowerCase() === 'checkbox';
 }

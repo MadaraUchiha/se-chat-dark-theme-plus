@@ -50,9 +50,7 @@ input[type='submit'] {
     text-align: center;
     padding: 6px 8px;
     border-radius: 5px;
-    border: 1px solid black;
-    background-color: white;
-    color: rgb(0, 0, 0);
+    color: #fff;
     position: relative;
     left: 50%;
     transform: translateX(-50%);

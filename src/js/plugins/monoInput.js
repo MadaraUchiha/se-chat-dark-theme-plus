@@ -24,4 +24,4 @@
             input.style.fontFamily = defaultFont;
         }
     });
-}())
+}());

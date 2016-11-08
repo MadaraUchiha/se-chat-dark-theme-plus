@@ -104,7 +104,11 @@ function init(options) {
 	injector(loading, _ => {
 		const drai = document.createElement('script');
 		drai.textContent = `
+		if( document.readyState === 'complete' ) {
+			DOMObserver.drain();
+		} else {
 			window.onload = _ => DOMObserver.drain();
+		}
 		`;
 		document.body.appendChild(drai);
 	});

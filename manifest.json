@@ -20,10 +20,6 @@
 		"*://chat.stackexchange.com/*",
 		"*://chat.meta.stackexchange.com/*"
 	],
-	"background": {
-		"matches" : ["*://chat.stackoverflow.com/*","*://chat.stackexchange.com/*","*://chat.meta.stackexchange.com/*"],
-		"scripts": ["background.js"]
-	},
 	"web_accessible_resources": [
 		"js/*.js",
 		"css/*.css",

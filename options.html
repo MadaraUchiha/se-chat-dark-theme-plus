@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head><title>SO Dark Chat + options</title></head>
+<link rel="stylesheet" type="text/css" href="options.css">
+<body>
+<div class="container">
+	<h1>
+	SO Dark Chat + <small>options</small>
+	</h1>
+		<form id="optForm">
+
+			<div class="control-group">
+				<label>
+					<input type="checkbox" id="base_css" /> Use dark theme css <small style="color:red">(Warning, not using the base CSS might break other things. I haven't tested without)</small>
+				</label>
+			</div>
+			<div class="control-group">
+				<label>
+					<input type="checkbox" id="inline_youtube" /> Show YouTube links inline
+				</label>
+			</div>
+			<div class="control-group">
+				<label>
+					<input type="checkbox" id="collapse_onebox" /> Collapsable oneboxes
+				</label>
+			</div>
+			<div class="control-group">
+				<label>
+					<input type="checkbox" id="collapse_onebox_default" /> Collapse oneboxes by default
+				</label>
+			</div>
+			<div class="control-group">
+				<label>
+					<input type="checkbox" id="user_color_bars" /> Show user colour bars
+				</label>
+			</div>
+			<div class="control-group">
+				<label>
+					<input type="checkbox" id="fish_spinner" /> Use Fish spinner (it's the best spinner)
+				</label>
+			</div>
+			<div class="control-group">
+				<label>
+					<input type="checkbox" id="inline_imgur" /> Show Imgur 'videos' inline
+				</label>
+			</div>
+			<div class="control-group">
+				<label>
+					<input type="checkbox" id="visualize_hex" /> Visualize Hex codes
+				</label>
+			</div>
+			<div class="control-group">
+				<label>
+					<input type="checkbox" id="syntax_highlight_code" /> Apply Highlight.js to code blocks
+				</label>
+			</div>
+			<div class="control-group">
+				<label>
+					<input type="checkbox" id="emoji_translator" /> Translate emojis to unicode in the input
+				</label>
+			</div>
+			<div class="control-group">
+				<label>
+					<input type="checkbox" id="code_mode_editor" /> Replace ctrl+k 'mode' with CodeMirror
+				</label>
+			</div>
+
+
+			<input type="submit" value="Save" />
+
+		</form>
+		<div id="message"></div>
+</div>
+
+
+<script src="options.js"></script>
+</body>
+</html>

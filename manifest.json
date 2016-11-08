@@ -1,0 +1,39 @@
+{
+	"name": "SO Dark Chat +",
+	"description": "Provides a new dark theme for stackoverflow chat.",
+	"version": "0.1.0",
+	"manifest_version": 2,
+	"content_scripts": [
+		{
+			"matches" : ["*://chat.stackoverflow.com/*","*://chat.stackexchange.com/*","*://chat.meta.stackexchange.com/*"],
+			"js": ["script.js"],
+			"css": ["css/style.css","CodeMirror/css/codemirror.css","CodeMirror/css/monokai.css"]
+		}
+	],
+	"options_page": "options.html",
+	"icons": {
+		"128": "img/icon_128.png"
+	},
+	"permissions": [
+		"storage",
+		"*://chat.stackoverflow.com/*",
+		"*://chat.stackexchange.com/*",
+		"*://chat.meta.stackexchange.com/*"
+	],
+	"background": {
+		"matches" : ["*://chat.stackoverflow.com/*","*://chat.stackexchange.com/*","*://chat.meta.stackexchange.com/*"],
+		"scripts": ["background.js"]
+	},
+	"web_accessible_resources": [
+		"js/*.js",
+		"css/*.css",
+		"fonts/*.woff2",
+		"fonts/*.woff",
+		"fonts/*.ttf",
+		"fonts/*.svg",
+		"fonts/*.eot",
+		"images/*.svg",
+		"CodeMirror/*",
+		"CodeMirror/*/*"
+	]
+}

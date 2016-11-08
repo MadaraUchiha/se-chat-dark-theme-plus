@@ -27,11 +27,6 @@
 	"web_accessible_resources": [
 		"js/*.js",
 		"css/*.css",
-		"fonts/*.woff2",
-		"fonts/*.woff",
-		"fonts/*.ttf",
-		"fonts/*.svg",
-		"fonts/*.eot",
 		"images/*.svg",
 		"CodeMirror/*",
 		"CodeMirror/*/*"

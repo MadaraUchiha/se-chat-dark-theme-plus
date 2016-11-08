@@ -1,0 +1,19 @@
+
+{
+  "name": "se-chat-dark-theme-plus",
+  "version": "1.0.0",
+  "description": "'dark chat theme for stackoverflow'",
+  "scripts": {
+    "start": "node version.js && gulp"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^2.0.4",
+    "gulp-zip": "^3.0.2"
+  },
+  "author": "rlemon",
+  "license": "ISC"
+}

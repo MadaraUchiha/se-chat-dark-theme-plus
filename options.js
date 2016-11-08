@@ -15,7 +15,7 @@ function load() {
 	let data = {};
 	Array.from(form.elements).forEach( element => {
 		if( element.type === 'submit' || element.type === 'button' ) return;
-		data[element.id] = false;
+		data[element.id] = true;
 	})
 	chrome.storage.sync.get(data, items => {
 		Object.keys(items).forEach(key => setValue(form.elements[key], items[key]));

@@ -41,6 +41,12 @@ function collapseOnebox(node) {
         this.dataset.isOpen = isOpen === TRUE ? FALSE : TRUE;
         this.innerHTML = (isOpen === TRUE ? lblClose : lblOpen) + anchor;
         this.nextElementSibling.hidden = isOpen === FALSE;
+        const youtube = container.querySelector('iframe.youtube-onebox');
+        if(youtube) {
+            const {contentWindow} = youtube;
+            const func = isOpen === FALSE ? 'pauseVideo' : 'playVideo';
+            contentWindow.postMessage(`{"event":"command","func":"${func}","args":""}`, '*');
+        }
     };
     ob.hidden = autoCollapse;
     container.insertBefore(toggleBar, ob);

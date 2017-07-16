@@ -3966,4 +3966,7 @@ const emojiData = [{
 }, {
   "emoji": "( ͡° ͜ʖ ͡°)",
   "triggers": [":lenny:", ":lenny_face:"]
+}, {
+  "emoji": "🤷",
+  "triggers": [":shrug:", ":shrugging:"]
 }];

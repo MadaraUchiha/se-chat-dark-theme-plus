@@ -22,8 +22,9 @@ const defaults = {
 
 	emoji_translator: true,				// emoji translator for INPUT area
 
-	code_mode_editor: true				// uses CodeMirror for your code inputs
+	code_mode_editor: true,				// uses CodeMirror for your code inputs
 
+	better_image_uploads: true			// use the drag & drop and paste api for image uploads
 
 };
 
@@ -34,6 +35,7 @@ const fileLocations = {
 	fish_spinner: ['js/fish_spinner.js'],
 	inline_imgur: ['js/inline_imgur.js'],
 	visualize_hex: ['js/visualize_hex.js'],
+	better_image_uploads: ['js/better_image_uploads.js'],
 	syntax_highlight_code: ['js/highlight.js', 'js/syntax_highlight_code.js'],
 	emoji_translator: ['js/emojidata.js', 'js/emoji_translator.js'],
 	code_mode_editor: ['CodeMirror/js/codemirror.js',

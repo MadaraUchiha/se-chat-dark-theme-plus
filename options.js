@@ -18,6 +18,7 @@ function load() {
 		data[element.id] = true;
 	})
 	chrome.storage.sync.get(data, items => {
+		console.log(items);
 		Object.keys(items).forEach(key => setValue(form.elements[key], items[key]));
 	});
 }

@@ -1,7 +1,7 @@
 {
   "name": "SO Dark Chat +",
   "description": "Provides a new dark theme for stackoverflow chat.",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "manifest_version": 2,
   "content_scripts": [{
     "matches": ["*://chat.stackoverflow.com/*", "*://chat.stackexchange.com/*", "*://chat.meta.stackexchange.com/*"],

@@ -7,22 +7,39 @@
 */
 const inputElement = document.querySelector('#input');
 
-async function uploadImage(blob) {
+function getUploadFromComputerFormData(blob) {
 	const formData = new FormData();
 	formData.append('fkey', fkey().fkey);
 	formData.append('source', 'computer');
 	formData.append('filename', blob, 'image.png');
-	const res = await fetch('/upload/image', {
-		method: 'POST',
-		body: formData
-	});
-	const text = await res.text();
-	const re = /result = '([^']*)';/;
-	const [,url] = text.match(re);
-	if( url ) {
-		postImage(url);
-	} else {
-		console.error('failed to upload image, probably too large');
+	return formData;
+}
+function getUploadFromWebFormData(url) {
+	const formData = new FormData();
+	formData.append('fkey', fkey().fkey);
+	formData.append('upload-url', url);
+	return formData;
+}
+
+async function uploadImage({blob = null, url = null}) {
+	try {
+		const formData = blob ? getUploadFromComputerFormData(blob) : getUploadFromWebFormData(url);
+		const res = await fetch('/upload/image', {
+			method: 'POST',
+			body: formData
+		});
+		const text = await res.text();
+		const re = /result = '([^']*)';/;
+		const [,src] = text.match(re);
+		if( src ) {
+			postImage(src);
+		} else {
+			const error = blob ? 'probably too large' : `bad url: ${url}`;
+			console.info(`failed to upload, ${error}`)
+			done();
+		}
+	} catch( error ) {
+		console.error(error);
 		done();
 	}
 }
@@ -68,7 +85,7 @@ function processString(item) {
 		// if the user drags the image directly to the page you get a url
 		try {
 			const url = new URL(string);
-			postImage(url);
+			uploadImage({url});
 		} catch( err ) {
 			// otherwise, they have copied the image to their clipboard
 			// and you get a partial document
@@ -76,12 +93,12 @@ function processString(item) {
 				const parser = new DOMParser();
 				const doc = parser.parseFromString(string, 'text/html');
 				if( doc.images[0] ) {
-					postImage(doc.images[0].src);
+					uploadImage({url: doc.images[0].src});
 				} else {
 					throw new Error();
 				}
 			} catch(e) {
-				console.error('failed to parse clipboard data');
+				console.info('failed to parse clipboard data');
 				done();
 			}
 		}
@@ -91,7 +108,6 @@ function processString(item) {
 
 function processFile(item) {
 	if( !item || !item.type.includes('image') ) return;
-
 	const file = item.getAsFile();
 	const reader = new FileReader();
 	reader.onload = readerEvent => {
@@ -102,7 +118,7 @@ function processFile(item) {
 			canvas.height = img.height;
 			canvas.width = img.width;
 			context.drawImage(img, 0, 0);
-			canvas.toBlob(uploadImage);
+			canvas.toBlob(blob => uploadImage({blob}));
 		};
 		img.src = readerEvent.target.result;
 	};

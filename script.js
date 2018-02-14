@@ -84,63 +84,92 @@ const fileLocations = {
 // right now I assume order is correct because I'm a terrible person. make an order array or base it on File Locations and make that an array
 
 // inject the observer and the utils always. then initialize the options.
-injector([{ type: 'js', location: 'js/observer.js' }, { type: 'js', location: 'js/utils.js' }], _ => chrome.storage.sync.get(defaultOptions, init));
+injectMany([
+	{ type: 'js', location: 'js/observer.js' },
+	{ type: 'js', location: 'js/utils.js' }
+])
+	.then(() => chrome.storage.sync.get(defaultOptions, init));
 
-function init(options) {
+/**
+ * Initialize extension lifecycle
+ * Inject all the scripts/css files, set everything in motion.
+ * @param {typeof defaultOptions} options Options to initialize the extension lifecycle with
+ */
+async function init(options) {
 	// inject the options for the plugins themselves.
 	const opts = document.createElement('script');
 	opts.textContent = `
 		const options = ${JSON.stringify(options)};
 	`;
 	document.body.appendChild(opts);
+
 	// now load the plugins.
-	const loading = [];
 	if (!options.base_css) {
 		document.documentElement.classList.add('nocss');
 	}
 	delete options.base_css;
-	for (const key of Object.keys(options)) {
-		if (!options[key] || !(key in fileLocations)) continue;
-		for (const location of fileLocations[key]) {
-			const [, type] = location.split('.');
-			loading.push({ location, type });
-		}
-	}
-	injector(loading, _ => {
-		const drai = document.createElement('script');
-		drai.textContent = `
+	const itemsToLoad = Object.keys(options)
+		.filter(key => options[key] && key in fileLocations)
+		.reduce((result, key) =>
+			result.concat(fileLocations[key]
+				.map(location => ({ location, type: location.split('.')[0] }))
+			)
+			, []);
+
+	await injectMany(itemsToLoad);
+	const drai = document.createElement('script');
+	drai.textContent = `
 		if( document.readyState === 'complete' ) {
 			DOMObserver.drain();
 		} else {
 			window.onload = _ => DOMObserver.drain();
 		}
-		`;
-		document.body.appendChild(drai);
+	`;
+	document.body.appendChild(drai);
+}
+
+/**
+ * Injects arbitrary items (scripts or styles) into the page.
+ * @param {ReadonlyArray<{type: 'js' | 'css', location: string}>} items List of items to inject
+ */
+async function injectMany(items) {
+	if (items.length === 0) return;
+	return await Promise.all(items.map(async (item) => {
+		if (item.type === 'js') {
+			return injectJS(item.location);
+		} else if (item.type === 'css') {
+			return injectCSS(item.location);
+		}
+	}));
+}
+
+/**
+ * Inject a single CSS file into the page.
+ * @param {string} file Location of the file relative to the extension root.
+ */
+async function injectCSS(file) {
+	return await new Promise((resolve, reject) => {
+		const elm = document.createElement('link');
+		elm.rel = 'stylesheet';
+		elm.type = 'text/css';
+		elm.href = chrome.extension.getURL(file);
+		elm.onload = resolve;
+		elm.onerror = reject;
+		document.head.appendChild(elm);
 	});
 }
 
-function injector([first, ...rest], cb) {
-	if (!first) return cb();
-	if (first.type === 'js') {
-		injectJS(first.location, _ => injector(rest, cb));
-	} else {
-		injectCSS(first.location, _ => injector(rest, cb));
-	}
-}
-
-function injectCSS(file, cb) {
-	const elm = document.createElement('link');
-	elm.rel = 'stylesheet';
-	elm.type = 'text/css';
-	elm.href = chrome.extension.getURL(file);
-	elm.onload = cb;
-	document.head.appendChild(elm);
-}
-
-function injectJS(file, cb) {
-	const elm = document.createElement('script');
-	elm.type = 'text/javascript';
-	elm.src = chrome.extension.getURL(file);
-	elm.onload = cb;
-	document.body.appendChild(elm);
+/**
+ * Inject a single JS file into the page.
+ * @param {string} file Location of the file relative to the extension root.
+ */
+async function injectJS(file) {
+	return await new Promise((resolve, reject) => {
+		const elm = document.createElement('script');
+		elm.type = 'text/javascript';
+		elm.src = chrome.extension.getURL(file);
+		elm.onload = resolve;
+		elm.onerror = reject;
+		document.body.appendChild(elm);
+	});
 }

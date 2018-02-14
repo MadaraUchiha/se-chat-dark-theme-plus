@@ -7,7 +7,9 @@ module.exports = {
         "ecmaVersion": 2017
     },
     "globals": {
-        "chrome": false
+        "chrome": false,
+        "fkey": false,
+        "CodeMirror": false,
     },
     "extends": "eslint:recommended",
     "rules": {
@@ -26,6 +28,7 @@ module.exports = {
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "no-console": "off",
     }
 };

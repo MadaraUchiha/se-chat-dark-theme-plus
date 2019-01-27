@@ -83,7 +83,7 @@ const fileLocations = {
 // right now I assume order is correct because I'm a terrible person. make an order array or base it on File Locations and make that an array
 
 // inject the observer and the utils always. then initialize the options.
-injector([{type: 'js', location: 'js/observer.js'},{type: 'js', location: 'js/utils.js'}], _ => chrome.storage.sync.get(defaults, init));
+injector([{ type: 'js', location: 'js/observer.js' }, { type: 'js', location: 'js/utils.js' }], _ => init(defaults));
 
 function init(options) {
 	// inject the options for the plugins themselves.

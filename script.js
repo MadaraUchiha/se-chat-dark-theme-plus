@@ -112,7 +112,7 @@ async function init(options) {
 		.filter(key => options[key] && key in fileLocations)
 		.reduce((result, key) =>
 			result.concat(fileLocations[key]
-				.map(location => ({ location, type: location.split('.')[0] }))
+				.map(location => ({ location, type: location.split('.')[1] }))
 			)
 			, []);
 
@@ -134,13 +134,13 @@ async function init(options) {
  */
 async function injectMany(items) {
 	if (items.length === 0) return;
-	return await Promise.all(items.map(async (item) => {
+	for (const item of items) {
 		if (item.type === 'js') {
-			return injectJS(item.location);
+			await injectJS(item.location);
 		} else if (item.type === 'css') {
-			return injectCSS(item.location);
+			await injectCSS(item.location);
 		}
-	}));
+	}
 }
 
 /**

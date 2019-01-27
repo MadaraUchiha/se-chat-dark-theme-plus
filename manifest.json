@@ -28,9 +28,6 @@
   "icons": {
     "128": "img/icon_128.png"
   },
-  "permissions": [
-    "storage"
-  ],
   "web_accessible_resources": [
     "js/*.js",
     "css/*.css",

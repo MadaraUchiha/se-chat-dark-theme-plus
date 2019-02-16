@@ -7,15 +7,23 @@
   },
   "devDependencies": {
     "@types/chrome": "^0.0.59",
-    "@types/codemirror": "^0.0.55",
+    "@types/codemirror": "^0.0.71",
+    "@types/webpack": "^4.4.24",
     "eslint": "^4.17.0",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.1.7",
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.0.4",
-    "gulp-zip": "^3.0.2"
+    "gulp-zip": "^3.0.2",
+    "ts-node": "^8.0.2",
+    "typescript": "^3.3.1",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1"
   },
   "author": "rlemon",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "codemirror": "^5.43.0"
+  }
 }

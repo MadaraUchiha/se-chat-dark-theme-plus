@@ -4,6 +4,8 @@ import { FishSpinnerModule } from "./modules/FishSpinnerModule";
 import { DisableBaseCssModule } from "./modules/DisableBaseCssModule";
 import { EmojiTranslatorModule } from "./modules/EmojiTranslatorModule";
 import { InlineImgurModule } from "./modules/InlineImgurModule";
+import { waitForDocumentReady } from "./utils/utils";
+import { CodeModeEditorModule } from "./modules/CodeModeEditorModule";
 
 const defaultSettings = {
   baseCss: true,            // the base dark theme css
@@ -29,7 +31,9 @@ class ModuleRunner {
     private settings = defaultSettings,
   ) { }
 
-  public init() {
+  public async init() {
+    console.log('SE Chat Dark Theme++ Initializing');
+
     if (!this.settings.baseCss) {
       const disableBaseCssModule = new DisableBaseCssModule();
       disableBaseCssModule.init();
@@ -50,6 +54,17 @@ class ModuleRunner {
       const inlineImgurModule = new InlineImgurModule(this.observer);
       inlineImgurModule.init();
     }
+    if (this.settings.codeModeEditor) {
+      const codeModeEditorModule = new CodeModeEditorModule();
+      codeModeEditorModule.init();
+    }
+
+    await this.drainObserverWhenDocumentIsReady(observer)
+  }
+
+  private async drainObserverWhenDocumentIsReady(observer: DOMObserver) {
+    await waitForDocumentReady()
+    return observer.drain();
   }
 }
 

@@ -11,7 +11,7 @@
         "*://chat.meta.stackexchange.com/*"
       ],
       "js": [
-        "script.js"
+        "dist/main.js"
       ],
       "css": [
         "css/style.css",

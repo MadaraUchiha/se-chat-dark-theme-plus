@@ -3,7 +3,8 @@
   "version": "0.1.5",
   "description": "'dark chat theme for stackoverflow'",
   "scripts": {
-    "build": "gulp"
+    "build": "gulp",
+    "build-wp": "webpack"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.59",
@@ -16,10 +17,11 @@
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.0.4",
     "gulp-zip": "^3.0.2",
+    "ts-loader": "^5.3.3",
     "ts-node": "^8.0.2",
     "typescript": "^3.3.1",
     "webpack": "^4.29.0",
-    "webpack-cli": "^3.2.1"
+    "webpack-cli": "^3.2.3"
   },
   "author": "rlemon",
   "license": "ISC",

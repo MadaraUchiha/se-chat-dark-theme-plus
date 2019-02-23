@@ -6,6 +6,7 @@ import { EmojiTranslatorModule } from "./modules/EmojiTranslatorModule";
 import { InlineImgurModule } from "./modules/InlineImgurModule";
 import { waitForDocumentReady } from "./utils/utils";
 import { CodeModeEditorModule } from "./modules/CodeModeEditorModule";
+import { UserColorBarsModule } from "./modules/UserColorBarsModule";
 
 const defaultSettings = {
   baseCss: true,            // the base dark theme css
@@ -57,6 +58,10 @@ class ModuleRunner {
     if (this.settings.codeModeEditor) {
       const codeModeEditorModule = new CodeModeEditorModule();
       codeModeEditorModule.init();
+    }
+    if (this.settings.userColorBars) {
+      const userColorBarsModule = new UserColorBarsModule(this.observer);
+      userColorBarsModule.init();
     }
 
     await this.drainObserverWhenDocumentIsReady(observer)

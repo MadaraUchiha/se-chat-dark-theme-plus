@@ -8,6 +8,7 @@ import { waitForDocumentReady } from "./utils/utils";
 import { CodeModeEditorModule } from "./modules/CodeModeEditorModule";
 import { UserColorBarsModule } from "./modules/UserColorBarsModule";
 import { InlineYouTubeModule } from "./modules/InlineYouTubeModule";
+import { BetterImageUploadsModule } from "./modules/BetterImageUploadsModule";
 
 const defaultSettings = {
   baseCss: true,            // the base dark theme css
@@ -67,6 +68,10 @@ class ModuleRunner {
     if (this.settings.userColorBars) {
       const userColorBarsModule = new UserColorBarsModule(this.observer);
       userColorBarsModule.init();
+    }
+    if (this.settings.betterImageUploads) {
+      const betterImageUploadsModule = new BetterImageUploadsModule();
+      betterImageUploadsModule.init();
     }
 
     await this.drainObserverWhenDocumentIsReady(observer)

@@ -7,6 +7,7 @@ import { InlineImgurModule } from "./modules/InlineImgurModule";
 import { waitForDocumentReady } from "./utils/utils";
 import { CodeModeEditorModule } from "./modules/CodeModeEditorModule";
 import { UserColorBarsModule } from "./modules/UserColorBarsModule";
+import { InlineYouTubeModule } from "./modules/InlineYouTubeModule";
 
 const defaultSettings = {
   baseCss: true,            // the base dark theme css
@@ -54,6 +55,10 @@ class ModuleRunner {
     if (this.settings.inlineImgur) {
       const inlineImgurModule = new InlineImgurModule(this.observer);
       inlineImgurModule.init();
+    }
+    if (this.settings.inlineYoutube) {
+      const inlineYouTubeModule = new InlineYouTubeModule(this.observer);
+      inlineYouTubeModule.init();
     }
     if (this.settings.codeModeEditor) {
       const codeModeEditorModule = new CodeModeEditorModule();

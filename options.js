@@ -6,7 +6,7 @@ function save(e) {
 	e.preventDefault();
 	let data = {};
 	Array.from(form.elements).forEach( element => {
-	if( element.type === 'submit' || element.type === 'button' ) return;
+		if( element.type === 'submit' || element.type === 'button' ) return;
 		data[element.id] = getValue(element); // only works for checkboxes obviously. 
 	});
 	chrome.storage.sync.set(data, report('settings saved'));

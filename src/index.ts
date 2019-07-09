@@ -1,4 +1,4 @@
-import '../scss/app.scss';
+import '../scss/app.important.scss';
 
 import { DOMObserver } from "./utils/observer";
 import { CollapseOneboxModule } from "./modules/CollapseOneboxModule";

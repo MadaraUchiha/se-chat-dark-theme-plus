@@ -12,7 +12,8 @@ const config: Configuration = {
   module: {
     rules: [
       { test: /\.tsx?$/, include: pathResolve(__dirname, 'src'), loader: 'ts-loader' },
-      { test: /\.s?css$/, use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'] },
+      { test: /(?<!\.important)\.s?css$/, use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'] },
+      { test: /\.important\.s?css$/, use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'cssimportant-loader', 'sass-loader'] },
     ],
   },
   resolve: {

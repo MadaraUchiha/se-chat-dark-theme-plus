@@ -69,6 +69,7 @@ export class CodeModeEditorModule {
     }
     select.addEventListener('change', e => this.changeMode(e));
     select.hidden = true;
+    select.value = "text/typescript";
     return select;
   }
 

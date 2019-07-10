@@ -8,7 +8,7 @@ const config: Configuration = {
     filename: "main.js",
     path: pathResolve(__dirname, "dist")
   },
-  devtool: "eval-source-map",
+  devtool: "source-map",
   module: {
     rules: [
       {

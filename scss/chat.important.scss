@@ -1,12 +1,12 @@
 * {
-	tab-size: 4;
+  tab-size: 4;
 }
 
 body,
 #loading {
-	background-color: #000;
-	background-image: $bg-pattern;
-	color: #ddd;
+  background-color: #000;
+  background-image: $bg-pattern;
+  color: #ddd;
   box-shadow: none;
 
   #loading-message {
@@ -18,160 +18,161 @@ body,
 }
 
 .highlight {
-	background-color: inherit;
-	border-color: rgba(225,225,0,0.12);
-	margin-right: 0;
+  background-color: inherit;
+  border-color: rgba(225, 225, 0, 0.12);
+  margin-right: 0;
 }
 
 #leaveall {
-	padding: 0 3px;
+  padding: 0 3px;
 }
 
 #tabcomplete {
-	li {
-		background-color: #000;
-		color: #ccc;
-	}
+  li {
+    background-color: #000;
+    color: #ccc;
+  }
 }
 
 #input {
-	background-color: #000;
-	color: #ddd;
+  background-color: #000;
+  color: #ddd;
 }
 
 .notification,
 #feed-ticker {
-	background: rgba(0,0,0,0.95);
-	-moz-box-shadow: 0 1px 10px #545454;
-	-webkit-box-shadow: 0 1px 10px #545454;
-	box-shadow: 0 1px 10px #545454;
+  background: rgba(0, 0, 0, 0.95);
+  -moz-box-shadow: 0 1px 10px #545454;
+  -webkit-box-shadow: 0 1px 10px #545454;
+  box-shadow: 0 1px 10px #545454;
 }
 
 .ticker-item {
-	a {
-		color: #509fd8;
-	}
+  a {
+    color: #509fd8;
+  }
 }
 
 #searchbox {
-	background-color: #000;
-	color: #ddd;
+  background-color: #000;
+  color: #ddd;
 }
 
 #present-users,
 div#starred-posts {
-	> div {
-		> ul {
-			> li {
-				border-bottom: 1px dotted #222;
-			}
-		}
-	}
+  > div {
+    > ul {
+      > li {
+        border-bottom: 1px dotted #222;
+      }
+    }
+  }
 }
 
 .room-info {
-	> .last-message {
-		margin-left: 10px;
-	}
+  > .last-message {
+    margin-left: 10px;
+  }
 }
 
 #starred-posts {
-	ul {
-		li:hover {
-			background-color: #333;
-		}
-	}
+  ul {
+    li:hover {
+      background-color: #333;
+    }
+  }
 }
 
 .sprite {
-	background-image: $sprite-bg;
+  background-image: $sprite-bg;
 }
 
 .wmd-prompt-dialog {
-	border: none;
-	background-color: #000;
-	background-image: $bg-pattern;
-	color: #ddd;
+  border: none;
+  background-color: #000;
+  background-image: $bg-pattern;
+  color: #ddd;
 }
 
 body.outside #container,
 .general-room-access > form > div {
-	color: #ddd;
+  color: #ddd;
 }
 
 .popup {
-	border-color: #111;
-	color: #ddd;
-	background-color: rgba(51,51,51,0.95);
-	box-shadow: 0 1px 15px #000;
+  border-color: #111;
+  color: #ddd;
+  background-color: rgba(51, 51, 51, 0.95);
+  box-shadow: 0 1px 15px #000;
 
-	.btn-close {
-		color: #454545;
-		background-color: #111;
-	}
+  .btn-close {
+    color: #454545;
+    background-color: #111;
+  }
 }
 
 #conversation-sel {
-	border-color: #111;
-	color: #ddd;
-	background-color: rgba(51,51,51,0.95);
-	box-shadow: 0 1px 15px #000;
+  border-color: #111;
+  color: #ddd;
+  background-color: rgba(51, 51, 51, 0.95);
+  box-shadow: 0 1px 15px #000;
 
-	.btn-close {
-		color: #454545;
-		background-color: #111;
-	}
+  .btn-close {
+    color: #454545;
+    background-color: #111;
+  }
 }
 
 .tag,
 .ob-post-tag {
-	color: #454545;
-	background-color: #ddd;
-	border-bottom-color: #999;
-	border-right-color: #ddd;
+  color: #454545;
+  background-color: #ddd;
+  border-bottom-color: #999;
+  border-right-color: #ddd;
 }
 
 .flags-popup {
-	li.flagged-message {
-		div.content {
-			color: #eee;
-			background-color: #242424;
-		}
-	}
+  li.flagged-message {
+    div.content {
+      color: #eee;
+      background-color: #242424;
+    }
+  }
 }
 
 .header-logo {
-	margin: 0;
-	background-color: #ddd;
-	padding: 3px 6px 9px 6px;
+  margin: 0;
+  background-color: #ddd;
+  padding: 3px 6px 9px 6px;
 }
 
 .username.moderator {
-	color: #7798C2;
+  color: #7798c2;
 }
 
 #footer-legal {
-	color: transparent;
+  color: transparent;
 }
 
 body.moderator-room {
-	#input {
-		border: 2px solid rgba(255, 77, 0, 0.48);
-	}
+  #input {
+    border: 2px solid rgba(255, 77, 0, 0.48);
+  }
 }
 
 .mention {
-	background-color: #24A;
+  background-color: #24a;
 }
 
 .flair {
-	color: #ddd;
+  color: #ddd;
 }
 
 #bubble {
-	text-align: unset;
+  text-align: unset;
+  position: relative;
 }
 
 #codify-button {
-	display: none;
+  display: none;
 }

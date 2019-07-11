@@ -1,4 +1,4 @@
-import '../scss/app.important.scss';
+import "../scss/app.important.scss";
 
 import { DOMObserver } from "./utils/observer";
 import { CollapseOneboxModule } from "./modules/CollapseOneboxModule";
@@ -11,40 +11,48 @@ import { CodeModeEditorModule } from "./modules/CodeModeEditorModule";
 import { UserColorBarsModule } from "./modules/UserColorBarsModule";
 import { InlineYouTubeModule } from "./modules/InlineYouTubeModule";
 import { BetterImageUploadsModule } from "./modules/BetterImageUploadsModule";
+import { ThemeDomManipulationModule } from "./modules/ThemeDomManipulationModule";
 
 const defaultSettings = {
-  baseCss: true,            // the base dark theme css
-  inlineYoutube: true,        // makes youtube videos play inline the chat
-  collapseOnebox: true,         // can collapse
-  collapseOneboxDefault: false,   // default option for collapse
-  pauseYoutubeOnCollapse: true,   // default option for pausing youtube on collapse
-  userColorBars: true,        // show colored bars above users message blocks
-  fishSpinner: true,          // fish spinner is best spinner
-  inlineImgur: true,          // inlines webm,gifv,mp4 content from imgur
-  visualizeHex: true,        // underlines hex codes with their colour values
-  syntaxHighlightCode: true,    // guess at language and highlight the code blocks
-  emojiTranslator: true,        // emoji translator for INPUT area
-  codeModeEditor: true,        // uses CodeMirror for your code inputs
-  betterImageUploads: true      // use the drag & drop and paste api for image uploads
-}
+  baseCss: true, // the base dark theme css
+  inlineYoutube: true, // makes youtube videos play inline the chat
+  collapseOnebox: true, // can collapse
+  collapseOneboxDefault: false, // default option for collapse
+  pauseYoutubeOnCollapse: true, // default option for pausing youtube on collapse
+  userColorBars: true, // show colored bars above users message blocks
+  fishSpinner: true, // fish spinner is best spinner
+  inlineImgur: true, // inlines webm,gifv,mp4 content from imgur
+  visualizeHex: true, // underlines hex codes with their colour values
+  syntaxHighlightCode: true, // guess at language and highlight the code blocks
+  emojiTranslator: true, // emoji translator for INPUT area
+  codeModeEditor: true, // uses CodeMirror for your code inputs
+  betterImageUploads: true // use the drag & drop and paste api for image uploads
+};
 
 const observer = new DOMObserver();
 
 class ModuleRunner {
   public constructor(
     private observer: DOMObserver,
-    private settings = defaultSettings,
-  ) { }
+    private settings = defaultSettings
+  ) {}
 
   public async init() {
-    console.log('SE Chat Dark Theme++ Initializing');
+    console.log("SE Chat Dark Theme++ Initializing");
 
     if (!this.settings.baseCss) {
       const disableBaseCssModule = new DisableBaseCssModule();
       disableBaseCssModule.init();
     }
+    if (this.settings.baseCss) {
+      const themeDomManipulationModule = new ThemeDomManipulationModule();
+      themeDomManipulationModule.init();
+    }
     if (this.settings.collapseOnebox) {
-      const collapseOneboxModule = new CollapseOneboxModule(this.observer, this.settings);
+      const collapseOneboxModule = new CollapseOneboxModule(
+        this.observer,
+        this.settings
+      );
       collapseOneboxModule.init();
     }
     if (this.settings.fishSpinner) {
@@ -76,11 +84,11 @@ class ModuleRunner {
       betterImageUploadsModule.init();
     }
 
-    await this.drainObserverWhenDocumentIsReady(observer)
+    await this.drainObserverWhenDocumentIsReady(observer);
   }
 
   private async drainObserverWhenDocumentIsReady(observer: DOMObserver) {
-    await waitForDocumentReady()
+    await waitForDocumentReady();
     return observer.drain();
   }
 }

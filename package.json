@@ -3,7 +3,7 @@
   "version": "0.9.0",
   "description": "'dark chat theme for stackoverflow'",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --progress",
     "release": "yarn build --mode=production && bestzip se-chat-dark-theme-plus.zip manifest.json dist/ img/icon_128.png"
   },
   "devDependencies": {

@@ -28,18 +28,8 @@ export class BetterImageUploadsModule {
 
   private async handlePaste(e: Event) {
     const event = e as ClipboardEvent;
-    const items = [...event.clipboardData!.items];
-    const types = [...event.clipboardData!.types];
 
-    const item = items.find(
-      (item, i) => item.type.match(IMAGE_TYPE) || types[i].match(IMAGE_TYPE)
-    );
-
-    if (!item) {
-      return;
-    }
-
-    const file = item.getAsFile();
+    const file = this.extractFile(() => event.clipboardData!);
 
     if (!file) {
       return;
@@ -97,10 +87,40 @@ export class BetterImageUploadsModule {
   }
 
   private setLoadingState(isLoading: boolean) {
-    this.loading.textContent = isLoading ? "Loading..." : "";
+    this.loading.textContent = isLoading ? "Uploading..." : "";
   }
 
-  private handleDrop(e: DragEvent) {
-    return true;
+  private extractFile(dataTransferAccessor: () => DataTransfer) {
+    const dataTransfer = dataTransferAccessor.call(this);
+    const items = [...dataTransfer.items];
+    const types = [...dataTransfer.types];
+
+    const item = items.find(
+      (item, i) => item.type.match(IMAGE_TYPE) || types[i].match(IMAGE_TYPE)
+    );
+
+    if (!item) {
+      return;
+    }
+
+    const file = item.getAsFile();
+
+    if (!file) {
+      return;
+    }
+
+    return file;
+  }
+
+  private async handleDrop(e: DragEvent) {
+    e.preventDefault();
+    const file = this.extractFile(() => e.dataTransfer!);
+
+    if (!file) {
+      return;
+    }
+
+    const url = await this.uploadFile(file);
+    this.appendToInput(url);
   }
 }

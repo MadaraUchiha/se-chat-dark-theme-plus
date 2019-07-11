@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "'dark chat theme for stackoverflow'",
   "scripts": {
-    "build": "webpack --progress",
-    "release": "yarn build --mode=production && bestzip se-chat-dark-theme-plus.zip manifest.json dist/ img/icon_128.png"
+    "build": "rimraf dist && webpack --progress",
+    "release": "rimraf *.zip dist && zip -r se-dark-chat-theme-plus-source.zip ./* -x=*node_modules* && yarn build --mode=production && zip -r se-chat-dark-theme-plus.zip manifest.json dist/ img/"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.59",
@@ -16,6 +16,7 @@
     "cssimportant-loader": "^0.4.0",
     "mini-css-extract-plugin": "^0.7.0",
     "node-sass": "^4.12.0",
+    "rimraf": "^2.6.3",
     "sass-loader": "^7.1.0",
     "ts-loader": "^5.3.3",
     "ts-node": "^8.0.2",

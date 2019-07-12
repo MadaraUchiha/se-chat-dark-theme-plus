@@ -177,6 +177,6 @@ body.moderator-room {
   display: none;
 }
 
-a {
+a:not(.button):not(.tag) {
   color: #38aff9;
 }

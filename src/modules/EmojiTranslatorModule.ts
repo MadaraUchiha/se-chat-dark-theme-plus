@@ -3,6 +3,9 @@ import { emojiData } from "../utils/emojiData";
 export class EmojiTranslatorModule {
   public init() {
     const input = document.getElementById("input") as HTMLTextAreaElement;
+    if(!input) {
+      return;
+    }
     input.addEventListener("keyup", event => {
       const { selectionStart, selectionEnd } = input;
       if (event.which !== 32) return;

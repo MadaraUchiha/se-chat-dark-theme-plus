@@ -3,18 +3,20 @@ const DARK_THEME_SO_LOGO_BASE64 =
 
 export class ThemeDomManipulationModule {
   public init() {
-    const container = document.getElementById("footer-logo");
-    if (!container) {
-      return;
-    }
-    const link = container.querySelector<HTMLAnchorElement>("a");
-    const img = container.querySelector<HTMLImageElement>("img");
+    const containers = document.querySelectorAll<HTMLElement>("#footer-logo, #header-logo");
+    this.replaceLogos([...containers]);
+  }
+  private replaceLogos(containers: HTMLElement[]) {
+    for(const container of containers) {
+      const link = container.querySelector<HTMLAnchorElement>("a");
+      const img = container.querySelector<HTMLImageElement>("img");
 
-    if (!link || !img) {
-      return;
-    }
-    if (link.href.includes("stackoverflow")) {
-      img.src = DARK_THEME_SO_LOGO_BASE64;
+      if (!link || !img) {
+        return;
+      }
+      if (link.href.includes("stackoverflow")) {
+        img.src = DARK_THEME_SO_LOGO_BASE64;
+      }
     }
   }
 }

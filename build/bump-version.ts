@@ -41,8 +41,11 @@ function main(bump: string) {
   switch (bump) {
     case Bump.Major:
       major++;
+      minor = 0;
+      patch = 0;
     case Bump.Minor:
       minor++;
+      patch = 0;
     case Bump.Patch:
       patch++;
   }

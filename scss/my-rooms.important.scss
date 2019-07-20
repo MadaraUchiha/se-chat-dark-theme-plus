@@ -1,47 +1,1 @@
-ul#my-rooms {
-  border-bottom: 1px dotted #222;
-
-  .quickleave {
-  	float: right;
-  	opacity: 0.3;
-
-    &:hover {
-      opacity: 1.0;
-    }
-  }
-
-  .quickswitch, .quickleave {
-    background-image: $sprite-bg;
-  }
-
-  > li {
-    &:hover {
-    	background-color: #333;
-      a div.last-message {
-        color: #fff;
-      }
-    }
-
-    &.activity-0 {
-      color: #fff;
-    }
-    &.activity-1 {
-    	color: #ddd;
-    }
-    &.activity-2 {
-    	color: #bbb;
-    }
-    &.activity-3 {
-    	color: #999;
-    }
-    &.activity-4 {
-    	color: #888;
-    }
-    &.activity-5 {
-    	color: #777;
-    }
-    &.activity-6 {
-    	color: #666;
-    }
-  }
-}
+ul#my-rooms {  border-bottom: 1px dotted #222;  .quickleave {    float: right;    opacity: 0.3;    &:hover {      opacity: 1;    }  }  .quickswitch,  .quickleave {    background-image: $sprite-bg;  }  > li {    &:hover {      background-color: #333;      a div.last-message {        color: #fff;      }    }    &.activity-0 {      color: #fff;    }    &.activity-1 {      color: #ddd;    }    &.activity-2 {      color: #bbb;    }    &.activity-3 {      color: #999;    }    &.activity-4 {      color: #888;    }    &.activity-5 {      color: #777;    }    &.activity-6 {      color: #666;    }  }}

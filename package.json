@@ -13,8 +13,11 @@
     "@types/webpack": "^4.4.24",
     "css-loader": "^3.0.0",
     "cssimportant-loader": "^0.4.0",
+    "husky": "^3.0.1",
+    "lint-staged": "9.2.0",
     "mini-css-extract-plugin": "^0.7.0",
     "node-sass": "^4.12.0",
+    "prettier": "1.18.2",
     "rimraf": "^2.6.3",
     "sass-loader": "^7.1.0",
     "ts-loader": "^5.3.3",
@@ -27,5 +30,16 @@
   "license": "ISC",
   "dependencies": {
     "codemirror": "^5.43.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }

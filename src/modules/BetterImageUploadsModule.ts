@@ -113,12 +113,12 @@ export class BetterImageUploadsModule {
   }
 
   private async handleDrop(e: DragEvent) {
-    e.preventDefault();
     const file = this.extractFile(() => e.dataTransfer!);
 
     if (!file) {
       return;
     }
+    e.preventDefault();
 
     const url = await this.uploadFile(file);
     this.appendToInput(url);

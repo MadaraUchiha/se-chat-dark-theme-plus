@@ -41,6 +41,9 @@ export class CodeModeEditorModule {
   private select?: HTMLSelectElement;
   private btnSubmit = document.querySelector<HTMLButtonElement>('#sayit-button')!;
   public init() {
+    if(!this.input) {
+      return;
+    }
     this.codeMirror = CodeMirror(el => {
       el.hidden = true;
       this.input.insertAdjacentElement('beforebegin', el);

@@ -92,6 +92,9 @@ div#starred-posts {
   background-color: #000;
   background-image: $bg-pattern;
   color: #ddd;
+  .wmd-mini-button {
+    color: #ddd;
+  }
 }
 
 body.outside #container,
@@ -177,6 +180,6 @@ body.moderator-room {
   display: none;
 }
 
-a {
+a:not(.button, .tag, .wmd-mini-button) {
   color: #38aff9;
 }

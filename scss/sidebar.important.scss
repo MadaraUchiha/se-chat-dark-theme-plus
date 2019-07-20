@@ -1,9 +1,15 @@
 #sidebar {
-	overflow-y: auto;
-	color: #ddd;
-	bottom: 0px;
-	height: auto;
-	padding-bottom: 88px;
+  color: #ddd;
+  bottom: 0px;
+  height: auto;
+  padding-bottom: 88px;
+  width: 29%;
+
+  #sidebar-content {
+    overflow-y: auto;
+    padding-left: 20px;
+    height: 100%;
+  }
 
   #info {
     #roomtitle {
@@ -25,5 +31,5 @@
 }
 
 #sidebar-menu {
-	color: transparent;
+  color: transparent;
 }

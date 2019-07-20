@@ -180,6 +180,6 @@ body.moderator-room {
   display: none;
 }
 
-a:not(.button, .tag, .wmd-mini-button) {
+a:not(.button):not(.tag):not(.wmd-mini-button) {
   color: #38aff9;
 }

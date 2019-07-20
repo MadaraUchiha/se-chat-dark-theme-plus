@@ -12,7 +12,7 @@ Features include:
 4. Syntax Highlighting
 5. Other stuff I can't think of.
 
-### [Install for Chrome](https://chrome.google.com/webstore/detail/so-dark-chat-%20/bbkjccfnenmgidehjhaabamobpbaaghh)
+### [Install for Firefox](https://addons.mozilla.org/de/firefox/addon/so-dark-chat-plus/)
 
 Please report all issues and feature requests.
 

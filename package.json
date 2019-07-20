@@ -4,7 +4,7 @@
   "description": "'dark chat theme for stackoverflow'",
   "scripts": {
     "build": "rimraf dist && webpack --progress",
-    "release": "rimraf *.zip dist && zip -r se-dark-chat-theme-plus-source.zip ./* -x=*node_modules* && yarn build --mode=production && zip -r se-chat-dark-theme-plus.zip manifest.json dist/ img/"
+    "release": "rimraf release dist && mkdir release && zip -r release/se-dark-chat-theme-plus-source.zip ./* -x=*node_modules* && yarn build --mode=production && zip -r release/se-chat-dark-theme-plus.zip manifest.json dist/ img/"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.59",

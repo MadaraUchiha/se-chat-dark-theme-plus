@@ -43,11 +43,14 @@ function main(bump: string) {
       major++;
       minor = 0;
       patch = 0;
+      break;
     case Bump.Minor:
       minor++;
       patch = 0;
+      break;
     case Bump.Patch:
       patch++;
+      break;
   }
 
   const newVersion = `${major}.${minor}.${patch}`;

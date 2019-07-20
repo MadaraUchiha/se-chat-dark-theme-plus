@@ -1,1 +1,21 @@
-#main {  &.message-admin-mode {    .message-controls {      border-color: #111;      color: #ddd;      background-color: rgba(51, 51, 51, 0.95);      box-shadow: 0 1px 15px #000;    }  }  &.select-mode {    .message.selected {      background-color: #3c3932;    }  }  #input-area {    background-color: #333;    background-image: url('https://i.stack.imgur.com/JfVoA.png');  }}
+#main {
+  &.message-admin-mode {
+    .message-controls {
+      border-color: #111;
+      color: #ddd;
+      background-color: rgba(51, 51, 51, 0.95);
+      box-shadow: 0 1px 15px #000;
+    }
+  }
+
+  &.select-mode {
+    .message.selected {
+      background-color: #3c3932;
+    }
+  }
+
+  #input-area {
+    background-color: #333;
+    background-image: url('https://i.stack.imgur.com/JfVoA.png');
+  }
+}

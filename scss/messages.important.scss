@@ -1,1 +1,40 @@
-.mine {  .messages {    background-color: #333;    color: #ddd;  }}.monologue:hover {  .messages {    background-color: #282828;  }}.messages {  background-color: #222;  color: #ddd;  border-radius: 0;  border-bottom: 0;  border-right: 0;  border-left: 0;  .pending {    color: #fb7;  }  .posted {    color: #fdb;  }  .neworedit {    color: #fdb;  }}// not sure this is the best place for this. I'm getting used to organizing these still.div.message .meta,.timestamp {  background-color: #333;  color: #ddd;}
+.mine {
+  .messages {
+    background-color: #333;
+    color: #ddd;
+  }
+}
+
+.monologue:hover {
+  .messages {
+    background-color: #282828;
+  }
+}
+
+.messages {
+  background-color: #222;
+  color: #ddd;
+  border-radius: 0;
+  border-bottom: 0;
+  border-right: 0;
+  border-left: 0;
+
+  .pending {
+    color: #fb7;
+  }
+
+  .posted {
+    color: #fdb;
+  }
+
+  .neworedit {
+    color: #fdb;
+  }
+}
+
+// not sure this is the best place for this. I'm getting used to organizing these still.
+div.message .meta,
+.timestamp {
+  background-color: #333;
+  color: #ddd;
+}

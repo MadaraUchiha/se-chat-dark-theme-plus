@@ -1,1 +1,15 @@
-.vote-count-container {  &.stars {    .img {      background-image: $sprite-bg;    }    &.owner-star,    &.user-star,    &.owner-star.user-star {      .img {        background-image: $sprite-bg;      }    }  }}
+.vote-count-container {
+  &.stars {
+    .img {
+      background-image: $sprite-bg;
+    }
+
+    &.owner-star,
+    &.user-star,
+    &.owner-star.user-star {
+      .img {
+        background-image: $sprite-bg;
+      }
+    }
+  }
+}

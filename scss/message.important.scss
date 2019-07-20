@@ -1,1 +1,95 @@
-div.message {  margin-left: 3px;  padding-left: 22px;  border-radius: 3px;  transition: 0.3s;  &.reply-parent,  &.reply-child {    background-color: #333;    border: 1px solid #fff;  }  &.highlight {    background-color: rgba(225, 225, 225, 0.17);    .flash {      right: -38px;    }  }  &:hover {    border: 1px solid transparent;    border-bottom: 1px solid #333;    .action-link {      color: #eee;      background-color: #333;    }  }  .action-link {    border-radius: 3px 3px 0 0;  }  .meta {    right: 0;    bottom: 0;    border-radius: 3px 3px 0 0;    padding: 0 4px;    background-color: #333;    color: #ddd;    span:hover {      background-color: #666;      border-radius: 3px;    }  }}.msg-small {  color: #ddd;}.monologue {  margin: 0;  padding: 3px 0;  border-radius: 6px;  transition: 0.1s;  &.catchup-marker {    border-top-color: rgba(155, 155, 155, 0.5);  }  a.signature,  .signature {    color: #ddd;    a {      color: #ddd;    }  }}.avatar-32 {  margin-top: 5px;}#main.select-mode {  .message.selected {    background-color: #3c3932;  }}.timestamp:hover + div.message {  .action-link {    color: #eee;    background-color: #333;  }}.system-message-container {  div.system-message {    color: #aaa;  }}
+div.message {
+  margin-left: 3px;
+  padding-left: 22px;
+  border-radius: 3px;
+  transition: 0.3s;
+
+  &.reply-parent,
+  &.reply-child {
+    background-color: #333;
+    border: 1px solid #fff;
+  }
+
+  &.highlight {
+    background-color: rgba(225, 225, 225, 0.17);
+
+    .flash {
+      right: -38px;
+    }
+  }
+
+  &:hover {
+    border: 1px solid transparent;
+    border-bottom: 1px solid #333;
+
+    .action-link {
+      color: #eee;
+      background-color: #333;
+    }
+  }
+
+  .action-link {
+    border-radius: 3px 3px 0 0;
+  }
+
+  .meta {
+    right: 0;
+    bottom: 0;
+    border-radius: 3px 3px 0 0;
+    padding: 0 4px;
+    background-color: #333;
+    color: #ddd;
+
+    span:hover {
+      background-color: #666;
+      border-radius: 3px;
+    }
+  }
+}
+
+.msg-small {
+  color: #ddd;
+}
+
+.monologue {
+  margin: 0;
+  padding: 3px 0;
+  border-radius: 6px;
+  transition: 0.1s;
+
+  &.catchup-marker {
+    border-top-color: rgba(155, 155, 155, 0.5);
+  }
+
+  a.signature,
+  .signature {
+    color: #ddd;
+
+    a {
+      color: #ddd;
+    }
+  }
+}
+
+.avatar-32 {
+  margin-top: 5px;
+}
+
+#main.select-mode {
+  .message.selected {
+    background-color: #3c3932;
+  }
+}
+
+.timestamp:hover + div.message {
+  .action-link {
+    color: #eee;
+    background-color: #333;
+  }
+}
+
+.system-message-container {
+  div.system-message {
+    color: #aaa;
+  }
+}

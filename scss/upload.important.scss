@@ -1,1 +1,19 @@
-.dark-theme-loading {  position: absolute;  top: 5px;  right: 5px;  color: white;  animation: dark-theme-blink 1s ease-in-out infinite;}@keyframes dark-theme-blink {  0% {    opacity: 0;  }  50% {    opacity: 1;  }  100% {    opacity: 0;  }}
+.dark-theme-loading {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: white;
+  animation: dark-theme-blink 1s ease-in-out infinite;
+}
+
+@keyframes dark-theme-blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

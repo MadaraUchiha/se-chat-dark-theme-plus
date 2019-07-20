@@ -1,21 +1,1 @@
-.subheader {
-  #tabs {
-    border: none;
-
-    a:hover {
-    	background: #333;
-    	color: #eee;
-    }
-
-    a.youarehere {
-    	background: Transparent;
-    	color: #eee;
-      border-top-left-radius: 3px;
-    	border-top-right-radius: 3px;
-    }
-
-    a:not(.youarehere), .disabled {
-      border: none;
-    }
-  }
-}
+.subheader {  #tabs {    border: none;    a:hover {      background: #333;      color: #eee;    }    a.youarehere {      background: Transparent;      color: #eee;      border-top-left-radius: 3px;      border-top-right-radius: 3px;    }    a:not(.youarehere),    .disabled {      border: none;    }  }}

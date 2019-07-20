@@ -62,7 +62,7 @@ export class BetterImageUploadsModule {
     try {
       const resp = await fetch("https://chat.stackoverflow.com/upload/image", {
         method: "post",
-        body: form
+        body: formz
       });
 
       const html = await resp.text();
